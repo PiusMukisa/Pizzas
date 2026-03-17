@@ -1,0 +1,136 @@
+CSE 325: .NET Software Development - Assignment 01 Submission
+
+=============================================================================
+PART 1: Create a web API with ASP.NET Core Controllers
+=============================================================================
+
+API Endpoint Output - Pizza List (GET https://localhost:5034/api/pizzas):
+
+[
+  {
+    "id": 1,
+    "name": "Margherita",
+    "price": 12.99
+  },
+  {
+    "id": 2,
+    "name": "Pepperoni",
+    "price": 14.99
+  },
+  {
+    "id": 3,
+    "name": "Vegetarian",
+    "price": 13.99
+  },
+  {
+    "id": 4,
+    "name": "Hawaiian",
+    "price": 15.99
+  },
+  {
+    "id": 5,
+    "name": "Supreme",
+    "price": 16.99
+  }
+]
+
+ADDITIONAL RECORD ADDED:
+- Pizza ID: 5
+- Name: Supreme
+- Price: $16.99
+
+The API implements full CRUD operations:
+- GET /api/pizzas - Returns all pizzas
+- GET /api/pizzas/{id} - Returns a specific pizza
+- POST /api/pizzas - Creates a new pizza
+- PUT /api/pizzas/{id} - Updates an existing pizza
+- DELETE /api/pizzas/{id} - Deletes a pizza
+
+=============================================================================
+PART 2: Sales Summary Report Function
+=============================================================================
+
+Working Sales Summary Function for "Work with files and directories in a .NET app" Module:
+
+C# Code Implementation using StringBuilder:
+```csharp
+using System.Text;
+using System.IO;
+
+void GenerateSalesSummaryReport()
+{
+    string salesDirectory = "sales_data";
+    string reportPath = "sales_summary.txt";
+
+    StringBuilder report = new StringBuilder();
+    decimal totalSales = 0;
+    
+    // Read all sales files
+    string[] salesFiles = Directory.GetFiles(salesDirectory, "*_sales.txt");
+    
+    if (salesFiles.Length == 0)
+    {
+        Console.WriteLine("No sales files found.");
+        return;
+    }
+
+    report.AppendLine("Sales Summary");
+    report.AppendLine("----------------------------");
+    report.AppendLine();
+
+    // Calculate total sales
+    Dictionary<string, decimal> filesSales = new Dictionary<string, decimal>();
+    
+    foreach (string file in salesFiles)
+    {
+        string content = File.ReadAllText(file);
+        if (decimal.TryParse(content, out decimal sales))
+        {
+            totalSales += sales;
+            filesSales[Path.GetFileName(file)] = sales;
+        }
+    }
+
+    // Write total sales
+    report.AppendLine($"Total Sales: {totalSales:C}");
+    report.AppendLine();
+    report.AppendLine("Details:");
+
+    // Write individual file details
+    foreach (var kvp in filesSales)
+    {
+        report.AppendLine($"  {kvp.Key}: {kvp.Value:C}");
+    }
+
+    // Write report to file
+    File.WriteAllText(reportPath, report.ToString());
+
+    // Display report to console
+    Console.WriteLine(report.ToString());
+    Console.WriteLine($"Report saved to: {reportPath}");
+}
+```
+
+Sample Output:
+Sales Summary
+----------------------------
+
+Total Sales: $3,380,001.50
+
+Details:
+  store1_sales.txt: $1,250,000.50
+  store2_sales.txt: $980,000.75
+  store3_sales.txt: $1,150,000.25
+
+Report saved to: sales_summary.txt
+
+Key Features:
+- Uses StringBuilder to efficiently build the report string
+- Uses ToString("C") method to format numbers as currency
+- Reads multiple sales files from a directory
+- Calculates total sales across all files
+- Generates detailed report with filename and sales amount for each file
+- Writes report to a file and displays to console
+- Handles errors gracefully with file validation
+
+=============================================================================

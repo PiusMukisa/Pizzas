@@ -1,0 +1,9 @@
+Sales Summary
+----------------------------
+
+Total Sales: $3,380,001.50
+
+Details:
+  store1_sales.txt: $1,250,000.50
+  store2_sales.txt: $980,000.75
+  store3_sales.txt: $1,150,000.25
