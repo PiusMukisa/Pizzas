@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EJOP30Mlu+A=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaBlazor\\PizzaBlazor.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\CARTHA\\.nuget\\packages\\microsoft.aspnetcore.app.internal.assets\\10.0.5\\microsoft.aspnetcore.app.internal.assets.10.0.5.nupkg.sha512"
+  ],
+  "logs": []
+}

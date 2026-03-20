@@ -31,3 +31,4 @@ C:\Users\CARTHA\Desktop\Pizzas\PizzaAPI\obj\Debug\net10.0\refint\PizzaAPI.dll
 C:\Users\CARTHA\Desktop\Pizzas\PizzaAPI\obj\Debug\net10.0\PizzaAPI.pdb
 C:\Users\CARTHA\Desktop\Pizzas\PizzaAPI\obj\Debug\net10.0\PizzaAPI.genruntimeconfig.cache
 C:\Users\CARTHA\Desktop\Pizzas\PizzaAPI\obj\Debug\net10.0\ref\PizzaAPI.dll
+C:\Users\CARTHA\Desktop\Pizzas\PizzaAPI\obj\Debug\net10.0\PizzaAPI.sourcelink.json

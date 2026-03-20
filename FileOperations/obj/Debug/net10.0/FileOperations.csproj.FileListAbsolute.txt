@@ -12,3 +12,4 @@ C:\Users\CARTHA\Desktop\Pizzas\FileOperations\obj\Debug\net10.0\refint\FileOpera
 C:\Users\CARTHA\Desktop\Pizzas\FileOperations\obj\Debug\net10.0\FileOperations.pdb
 C:\Users\CARTHA\Desktop\Pizzas\FileOperations\obj\Debug\net10.0\FileOperations.genruntimeconfig.cache
 C:\Users\CARTHA\Desktop\Pizzas\FileOperations\obj\Debug\net10.0\ref\FileOperations.dll
+C:\Users\CARTHA\Desktop\Pizzas\FileOperations\obj\Debug\net10.0\FileOperations.sourcelink.json

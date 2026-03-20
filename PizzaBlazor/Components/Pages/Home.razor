@@ -1,0 +1,87 @@
+﻿@page "/"
+
+<PageTitle>Home - Pizza Palace</PageTitle>
+
+<div class="home-container">
+    <h1>Welcome to Pizza Palace</h1>
+    <p>The ultimate destination for delicious pizzas delivered to your door.</p>
+    
+    <div class="features">
+        <div class="feature">
+            <h3>🍕 Fresh Pizzas</h3>
+            <p>Made with the finest ingredients and freshly baked every day.</p>
+        </div>
+        <div class="feature">
+            <h3>⚡ Fast Delivery</h3>
+            <p>Quick and reliable delivery to your location in Uganda.</p>
+        </div>
+        <div class="feature">
+            <h3>💰 Affordable Prices</h3>
+            <p>Great quality pizzas at prices that fit your budget with $ currency.</p>
+        </div>
+    </div>
+
+    <div class="cta">
+        <NavLink class="btn btn-primary" href="pizzas">View Our Pizzas</NavLink>
+    </div>
+</div>
+
+<style>
+    .home-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .home-container h1 {
+        color: #667eea;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .home-container p {
+        font-size: 1.1rem;
+        color: #555;
+        margin-bottom: 2rem;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+    }
+
+    .feature {
+        background: #f8f9fa;
+        padding: 1.5rem;
+        border-radius: 8px;
+        text-align: center;
+    }
+
+    .feature h3 {
+        color: #667eea;
+        margin-top: 0;
+    }
+
+    .cta {
+        text-align: center;
+        margin-top: 2rem;
+    }
+
+    .btn {
+        display: inline-block;
+        padding: 0.75rem 2rem;
+        background-color: #667eea;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+        background-color: #764ba2;
+    }
+</style>
+

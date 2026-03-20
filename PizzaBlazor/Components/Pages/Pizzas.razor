@@ -1,0 +1,151 @@
+@page "/pizzas"
+@using PizzaBlazor.Models
+@inject HttpClient Http
+@rendermode InteractiveServer
+
+<PageTitle>Pizzas - Pizza Palace</PageTitle>
+
+<div class="pizzas-container">
+    <h1>Our Pizzas</h1>
+    
+    @if (pizzas == null)
+    {
+        <p><em>Loading pizzas...</em></p>
+    }
+    else if (pizzas.Count == 0)
+    {
+        <p><em>No pizzas available.</em></p>
+    }
+    else
+    {
+        <div class="pizza-grid">
+            @foreach (var pizza in pizzas)
+            {
+                <div class="pizza-card">
+                    <h3>@pizza.Name</h3>
+                    <div class="pizza-price">
+                        <span class="currency">$</span>@pizza.Price.ToString("F2")
+                    </div>
+                    <button @onclick="() => AddToCart(pizza)" class="btn-order">
+                        Order Now
+                    </button>
+                </div>
+            }
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(message))
+    {
+        <div class="alert alert-success">@message</div>
+    }
+</div>
+
+@code {
+    private List<Pizza>? pizzas;
+    private string message = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            // Call the PizzaAPI
+            pizzas = await Http.GetFromJsonAsync<List<Pizza>>("http://localhost:5234/api/pizzas");
+        }
+        catch (Exception ex)
+        {
+            message = $"Error loading pizzas: {ex.Message}";
+        }
+    }
+
+    private void AddToCart(Pizza pizza)
+    {
+        message = $"✓ {pizza.Name} added to cart! (${pizza.Price:F2})";
+        // Cart logic can be implemented here
+    }
+}
+
+<style>
+    .pizzas-container {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .pizzas-container h1 {
+        color: #667eea;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .pizza-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .pizza-card {
+        background: white;
+        border: 2px solid #e0e0e0;
+        border-radius: 10px;
+        padding: 1.5rem;
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pizza-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-color: #667eea;
+    }
+
+    .pizza-card h3 {
+        color: #333;
+        margin: 0 0 1rem 0;
+        font-size: 1.5rem;
+    }
+
+    .pizza-price {
+        font-size: 1.8rem;
+        color: #667eea;
+        font-weight: bold;
+        margin: 1rem 0;
+    }
+
+    .currency {
+        font-size: 1.4rem;
+    }
+
+    .btn-order {
+        background-color: #667eea;
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .btn-order:hover {
+        background-color: #764ba2;
+    }
+
+    .alert {
+        margin-top: 2rem;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+
+    .alert-success {
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+</style>
