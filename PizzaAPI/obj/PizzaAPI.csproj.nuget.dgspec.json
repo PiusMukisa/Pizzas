@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj": {}
+    "c:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj": {
+    "c:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj",
+        "projectUniqueName": "c:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj",
         "projectName": "PizzaAPI",
-        "projectPath": "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj",
+        "projectPath": "c:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\PizzaAPI.csproj",
         "packagesPath": "C:\\Users\\CARTHA\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\obj\\",
+        "outputPath": "c:\\Users\\CARTHA\\Desktop\\Pizzas\\PizzaAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\CARTHA\\AppData\\Roaming\\NuGet\\NuGet.Config"

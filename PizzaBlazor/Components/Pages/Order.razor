@@ -1,0 +1,111 @@
+@page "/order"
+@using PizzaBlazor.Models
+@using global::PizzaBlazor.Models
+@inject NavigationManager Navigation
+
+<PageTitle>Order - Pizza Palace</PageTitle>
+
+<div class="order-container">
+    <h1>Your Order</h1>
+    
+    @if (cart.Count == 0)
+    {
+        <p>Your cart is empty. <a href="pizzas">Go back to pizzas</a></p>
+    }
+    else
+    {
+        <div class="cart-items">
+            @foreach (var item in cart)
+            {
+                <div class="cart-item">
+                    <h3>@item.Name</h3>
+                    <p>$@item.Price.ToString("F2")</p>
+                </div>
+            }
+        </div>
+        
+        <div class="total">
+            <h2>Total: $@total.ToString("F2")</h2>
+        </div>
+        
+        <button @onclick="PlaceOrder" class="btn-place-order">Place Order</button>
+        
+        @if (!string.IsNullOrEmpty(orderMessage))
+        {
+            <div class="alert alert-success">@orderMessage</div>
+        }
+    }
+</div>
+
+@code {
+    private List<Pizza> cart = new();
+    private decimal total = 0;
+    private string orderMessage = "";
+
+    protected override void OnInitialized()
+    {
+        // In a real app, load cart from service or local storage
+        // For demo, assume cart is passed or stored elsewhere
+    }
+
+    private void PlaceOrder()
+    {
+        // Simulate placing order
+        orderMessage = "Order placed successfully! Thank you for choosing Pizza Palace.";
+        cart.Clear();
+        total = 0;
+    }
+}
+
+<style>
+    .order-container {
+        max-width: 800px;
+        margin: 2rem auto;
+        padding: 2rem;
+    }
+
+    .order-container h1 {
+        color: #667eea;
+        text-align: center;
+    }
+
+    .cart-items {
+        margin: 2rem 0;
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 1rem;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .total {
+        text-align: right;
+        margin: 2rem 0;
+    }
+
+    .btn-place-order {
+        background-color: #667eea;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        font-weight: bold;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    .btn-place-order:hover {
+        background-color: #764ba2;
+    }
+
+    .alert {
+        margin-top: 2rem;
+        padding: 1rem;
+        border-radius: 5px;
+        background-color: #d4edda;
+        color: #155724;
+        border: 1px solid #c3e6cb;
+    }
+</style>

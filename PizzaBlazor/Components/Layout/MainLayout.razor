@@ -1,16 +1,24 @@
 ﻿@inherits LayoutComponentBase
 
 <div class="page">
-    <header class="header">
-        <div class="header-content">
-            <h1>🍕 Pizza Palace</h1>
-            <p>Your favorite pizza ordering system</p>
+    <header class="app-header">
+        <div class="app-brand">
+            <img src="/images/logo.svg" alt="Pizza Palace" class="brand-logo" />
+            <span>Blazing Pizza</span>
         </div>
-    </header>
 
-    <div class="sidebar">
-        <NavMenu />
-    </div>
+        <nav class="top-nav">
+            <NavLink href="/" class="top-nav-item" Match="NavLinkMatch.All">
+                Home
+            </NavLink>
+            <NavLink href="/pizzas" class="top-nav-item">
+                Get Pizza
+            </NavLink>
+            <NavLink href="/order" class="top-nav-item">
+                My Orders
+            </NavLink>
+        </nav>
+    </header>
 
     <main>
         <article class="content px-4">

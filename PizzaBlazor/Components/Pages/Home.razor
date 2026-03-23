@@ -1,87 +1,621 @@
 ﻿@page "/"
 
-<PageTitle>Home - Pizza Palace</PageTitle>
-
-<div class="home-container">
-    <h1>Welcome to Pizza Palace</h1>
-    <p>The ultimate destination for delicious pizzas delivered to your door.</p>
-    
-    <div class="features">
-        <div class="feature">
-            <h3>🍕 Fresh Pizzas</h3>
-            <p>Made with the finest ingredients and freshly baked every day.</p>
-        </div>
-        <div class="feature">
-            <h3>⚡ Fast Delivery</h3>
-            <p>Quick and reliable delivery to your location in Uganda.</p>
-        </div>
-        <div class="feature">
-            <h3>💰 Affordable Prices</h3>
-            <p>Great quality pizzas at prices that fit your budget with $ currency.</p>
-        </div>
-    </div>
-
-    <div class="cta">
-        <NavLink class="btn btn-primary" href="pizzas">View Our Pizzas</NavLink>
-    </div>
-</div>
+<PageTitle>Pizza Palace</PageTitle>
 
 <style>
-    .home-container {
-        max-width: 800px;
-        margin: 2rem auto;
-        padding: 2rem;
+     url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
 
-    .home-container h1 {
-        color: #667eea;
-        font-size: 2.5rem;
-        margin-bottom: 1rem;
+    body {
+        background: #faf8f5;
+        color: #1a1a1a;
+        font-family: 'DM Sans', sans-serif;
     }
 
-    .home-container p {
-        font-size: 1.1rem;
-        color: #555;
-        margin-bottom: 2rem;
+    /* ── HEADER ── */
+    .header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255,255,255,0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(0,0,0,0.07);
+        padding: 0 40px;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
-    .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-family: 'Playfair Display', serif;
+        font-size: 20px;
+        font-weight: 900;
+        color: #c0392b;
+        letter-spacing: -0.3px;
     }
 
-    .feature {
-        background: #f8f9fa;
-        padding: 1.5rem;
-        border-radius: 8px;
-        text-align: center;
+    .logo-icon {
+        width: 36px;
+        height: 36px;
+        background: #c0392b;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
     }
 
-    .feature h3 {
-        color: #667eea;
-        margin-top: 0;
+    .header nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
-    .cta {
-        text-align: center;
-        margin-top: 2rem;
-    }
-
-    .btn {
-        display: inline-block;
-        padding: 0.75rem 2rem;
-        background-color: #667eea;
-        color: white;
+    .header nav a {
         text-decoration: none;
-        border-radius: 5px;
-        font-weight: bold;
-        transition: background-color 0.3s;
+        color: #555;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 8px 16px;
+        border-radius: 8px;
+        transition: all 0.2s;
     }
 
-    .btn:hover {
-        background-color: #764ba2;
+    .header nav a:hover {
+        background: #f5f0ee;
+        color: #c0392b;
+    }
+
+    .header nav a.btn-login {
+        background: #c0392b;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .header nav a.btn-login:hover {
+        background: #a93226;
+        color: white;
+    }
+
+    /* ── HERO ── */
+    .hero {
+        max-width: 1200px;
+        margin: 70px auto 60px;
+        padding: 0 40px;
+        display: grid;
+        grid-template-columns: 1fr 380px;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .hero-text .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        background: #fdecea;
+        color: #c0392b;
+        font-size: 13px;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 22px;
+        letter-spacing: 0.3px;
+    }
+
+    .hero-text h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 56px;
+        font-weight: 900;
+        line-height: 1.1;
+        letter-spacing: -1.5px;
+        color: #111;
+        margin-bottom: 18px;
+    }
+
+    .hero-text h1 span {
+        color: #c0392b;
+    }
+
+    .hero-text p {
+        color: #666;
+        font-size: 17px;
+        font-weight: 300;
+        line-height: 1.7;
+        max-width: 440px;
+        margin-bottom: 32px;
+    }
+
+    .hero-badges {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .badge {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 500;
+        color: #444;
+    }
+
+    .badge-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #2ecc71;
+        flex-shrink: 0;
+    }
+
+    /* ── LOGIN CARD ── */
+    .login-card {
+        background: white;
+        border-radius: 20px;
+        padding: 36px 32px;
+        border: 1px solid rgba(0,0,0,0.08);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .login-card .card-header {
+        margin-bottom: 28px;
+    }
+
+    .login-card h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 26px;
+        font-weight: 700;
+        color: #111;
+        margin-bottom: 4px;
+    }
+
+    .login-card .subtitle {
+        font-size: 14px;
+        color: #999;
+        font-weight: 400;
+    }
+
+    .form-group {
+        margin-bottom: 14px;
+    }
+
+    .form-group label {
+        display: block;
+        font-size: 12px;
+        font-weight: 600;
+        color: #888;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 6px;
+    }
+
+    .form-group input {
+        width: 100%;
+        padding: 12px 16px;
+        border: 1.5px solid #eee;
+        border-radius: 10px;
+        font-size: 15px;
+        font-family: 'DM Sans', sans-serif;
+        background: #fafafa;
+        color: #111;
+        transition: border-color 0.2s;
+        outline: none;
+    }
+
+    .form-group input:focus {
+        border-color: #c0392b;
+        background: white;
+    }
+
+    .form-group input::placeholder {
+        color: #bbb;
+    }
+
+    .btn-signin {
+        width: 100%;
+        padding: 13px;
+        background: #c0392b;
+        border: none;
+        color: white;
+        border-radius: 10px;
+        font-size: 15px;
+        font-weight: 600;
+        font-family: 'DM Sans', sans-serif;
+        cursor: pointer;
+        margin-top: 6px;
+        transition: all 0.2s;
+        letter-spacing: 0.2px;
+    }
+
+    .btn-signin:hover {
+        background: #a93226;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(192,57,43,0.35);
+    }
+
+    .login-footer {
+        text-align: center;
+        margin-top: 18px;
+        font-size: 13px;
+        color: #aaa;
+    }
+
+    .login-footer a {
+        color: #c0392b;
+        text-decoration: none;
+        font-weight: 500;
+    }
+
+    /* ── SECTION ── */
+    .section-wrap {
+        max-width: 1200px;
+        margin: 0 auto 80px;
+        padding: 0 40px;
+    }
+
+    .section-header {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        margin-bottom: 32px;
+    }
+
+    .section-header h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 34px;
+        font-weight: 700;
+        color: #111;
+        letter-spacing: -0.5px;
+    }
+
+    .section-header a {
+        font-size: 14px;
+        font-weight: 500;
+        color: #c0392b;
+        text-decoration: none;
+    }
+
+    .section-header a:hover {
+        text-decoration: underline;
+    }
+
+    /* ── GRID ── */
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .grid .card:first-child {
+        grid-column: span 2;
+    }
+
+    .grid .card:first-child .card-img {
+        height: 220px;
+    }
+
+    /* ── CARD ── */
+    .card {
+        background: white;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(0,0,0,0.06);
+        transition: all 0.25s ease;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+        border-color: transparent;
+    }
+
+    .card-img {
+        width: 100%;
+        height: 175px;
+        object-fit: cover;
+        display: block;
+        background: #f0ebe5;
+    }
+
+    .card-body {
+        padding: 16px 18px 18px;
+    }
+
+    .card-body h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: #111;
+        margin-bottom: 5px;
+        letter-spacing: -0.1px;
+    }
+
+    .card-body p {
+        font-size: 13px;
+        color: #999;
+        font-weight: 400;
+        margin-bottom: 14px;
+    }
+
+    .card-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .price {
+        font-size: 17px;
+        font-weight: 700;
+        color: #111;
+    }
+
+    .btn-add {
+        width: 32px;
+        height: 32px;
+        background: #c0392b;
+        border: none;
+        border-radius: 8px;
+        color: white;
+        font-size: 19px;
+        line-height: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+        flex-shrink: 0;
+    }
+
+    .btn-add:hover {
+        background: #a93226;
+        transform: scale(1.08);
+    }
+
+    /* ── STRIP ── */
+    .strip {
+        background: #c0392b;
+        padding: 22px 40px;
+        margin: 0 0 80px;
+    }
+
+    .strip-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        gap: 40px;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .strip-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: white;
+    }
+
+    .strip-item .icon {
+        font-size: 20px;
+    }
+
+    .strip-item strong {
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    .strip-item span {
+        font-size: 12px;
+        opacity: 0.75;
+        margin-left: 4px;
+    }
+
+    /* ── RESPONSIVE ── */
+     (max-width: 992px) {
+        .hero {
+            grid-template-columns: 1fr;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .hero-text h1 {
+            font-size: 40px;
+        }
+
+        .grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid .card:first-child {
+            grid-column: span 2;
+        }
+
+        .header {
+            padding: 0 24px;
+        }
+
+        .section-wrap, .hero {
+            padding: 0 24px;
+        }
+    }
+
+     (max-width: 600px) {
+        .hero-text h1 {
+            font-size: 32px;
+        }
+
+        .grid {
+            grid-template-columns: 1fr;
+        }
+
+        .grid .card:first-child {
+            grid-column: span 1;
+        }
+
+        .header nav a:not(.btn-login) {
+            display: none;
+        }
+
+        .section-header h2 {
+            font-size: 26px;
+        }
+
+        .strip {
+            padding: 18px 24px;
+        }
+
+        .hero {
+            margin-top: 36px;
+        }
     }
 </style>
 
+<!-- HEADER -->
+<div class="header">
+    <div class="logo">
+        <div class="logo-icon">🍕</div>
+        Pizza Palace
+    </div>
+    <nav>
+        <NavLink href="pizzas">Menu</NavLink>
+        <NavLink href="order">Orders</NavLink>
+        <NavLink href="login" class="btn-login">Sign In</NavLink>
+    </nav>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-text">
+        <div class="eyebrow">
+            ● Open now · Delivering to your area
+        </div>
+        <h1>Handcrafted<br/>Pizza, <span>Delivered</span><br/>Fast.</h1>
+        <p>Made fresh daily with premium ingredients — straight from our stone oven to your door in 30 minutes or less.</p>
+        <div class="hero-badges">
+            <div class="badge"><div class="badge-dot"></div> Free delivery over $25</div>
+            <div class="badge"><div class="badge-dot"></div> 30-min guarantee</div>
+            <div class="badge"><div class="badge-dot"></div> 4.9 ★ rated</div>
+        </div>
+    </div>
+
+    <div class="login-card">
+        <div class="card-header">
+            <h2>Welcome back</h2>
+            <p class="subtitle">Sign in to track your order</p>
+        </div>
+        <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@example.com" />
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" placeholder="••••••••" />
+        </div>
+        <button class="btn-signin">Sign In</button>
+        <div class="login-footer">
+            No account? <a href="#">Create one free</a>
+        </div>
+    </div>
+</div>
+
+<!-- STRIP -->
+<div class="strip">
+    <div class="strip-inner">
+        <div class="strip-item">
+            <span class="icon">🛵</span>
+            <strong>Free Delivery <span>on orders over $25</span></strong>
+        </div>
+        <div class="strip-item">
+            <span class="icon">⏱</span>
+            <strong>30-Min Guarantee <span>or it's on us</span></strong>
+        </div>
+        <div class="strip-item">
+            <span class="icon">🍅</span>
+            <strong>Fresh Ingredients <span>made daily</span></strong>
+        </div>
+        <div class="strip-item">
+            <span class="icon">♻️</span>
+            <strong>Eco Packaging <span>100% recyclable</span></strong>
+        </div>
+    </div>
+</div>
+
+<!-- MENU -->
+<div class="section-wrap">
+    <div class="section-header">
+        <h2>Popular Pizzas</h2>
+        <NavLink href="pizzas">See full menu →</NavLink>
+    </div>
+
+    <div class="grid">
+
+        <div class="card">
+            <img class="card-img" src="/images/margherita.svg" alt="Margherita" />
+            <div class="card-body">
+                <h3>Margherita</h3>
+                <p>San Marzano tomato, fresh buffalo mozzarella, basil</p>
+                <div class="card-footer">
+                    <span class="price">$9.99</span>
+                    <button class="btn-add">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="/images/pepperoni.svg" alt="Pepperoni" />
+            <div class="card-body">
+                <h3>Pepperoni</h3>
+                <p>Spicy pepperoni & aged mozzarella</p>
+                <div class="card-footer">
+                    <span class="price">$10.50</span>
+                    <button class="btn-add">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="/images/vegetarian.svg" alt="Vegetarian" />
+            <div class="card-body">
+                <h3>Vegetarian</h3>
+                <p>Roasted seasonal vegetables & pesto</p>
+                <div class="card-footer">
+                    <span class="price">$11.50</span>
+                    <button class="btn-add">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="/images/supreme.svg" alt="Supreme" />
+            <div class="card-body">
+                <h3>Supreme</h3>
+                <p>Loaded with premium toppings</p>
+                <div class="card-footer">
+                    <span class="price">$12.75</span>
+                    <button class="btn-add">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <img class="card-img" src="/images/hawaiian.svg" alt="Hawaiian" />
+            <div class="card-body">
+                <h3>Hawaiian</h3>
+                <p>Smoked ham, fresh pineapple & mozzarella</p>
+                <div class="card-footer">
+                    <span class="price">$11.00</span>
+                    <button class="btn-add">+</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

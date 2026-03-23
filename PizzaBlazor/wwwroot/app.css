@@ -1,9 +1,75 @@
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f2f2f2;
 }
 
 a, .btn-link {
     color: #006bb7;
+}
+
+/* top layout as per Blazing Pizza design */
+.app-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: linear-gradient(90deg, #c9000f, #a10021);
+    color: white;
+    padding: 0.8rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.app-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.brand-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+}
+
+.top-nav {
+    display: flex;
+    gap: 0.6rem;
+}
+
+.top-nav-item {
+    color: #fff;
+    font-weight: 600;
+    padding: 0.45rem 0.8rem;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.top-nav-item.active,
+.top-nav-item:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+.content {
+    background: #fff;
+    min-height: calc(100vh - 150px);
+    padding: 1.5rem;
+}
+
+.footer {
+    background: #202020;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+}
+
+.footer .footer-content p {
+    margin: 0.2rem;
 }
 
 .btn-primary {

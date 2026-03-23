@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("PizzaBlazor")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d0e3f580d322b6e09721b039b3051d9a9d384e12")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1a46d7e092f5d0983a165b5ca092dc682d25cc98")]
 [assembly: System.Reflection.AssemblyProductAttribute("PizzaBlazor")]
 [assembly: System.Reflection.AssemblyTitleAttribute("PizzaBlazor")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

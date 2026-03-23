@@ -1,6 +1,8 @@
 @page "/pizzas"
 @using PizzaBlazor.Models
+@using global::PizzaBlazor.Models
 @inject HttpClient Http
+@inject NavigationManager Navigation
 @rendermode InteractiveServer
 
 <PageTitle>Pizzas - Pizza Palace</PageTitle>
@@ -22,6 +24,7 @@
             @foreach (var pizza in pizzas)
             {
                 <div class="pizza-card">
+                    <img src="@GetPizzaImage(pizza.Name)" alt="@pizza.Name" class="pizza-image" />
                     <h3>@pizza.Name</h3>
                     <div class="pizza-price">
                         <span class="currency">$</span>@pizza.Price.ToString("F2")
@@ -49,7 +52,7 @@
         try
         {
             // Call the PizzaAPI
-            pizzas = await Http.GetFromJsonAsync<List<Pizza>>("http://localhost:5234/api/pizzas");
+            pizzas = await Http.GetFromJsonAsync<List<Pizza>>("http://localhost:5034/api/pizzas");
         }
         catch (Exception ex)
         {
@@ -60,7 +63,15 @@
     private void AddToCart(Pizza pizza)
     {
         message = $"✓ {pizza.Name} added to cart! (${pizza.Price:F2})";
-        // Cart logic can be implemented here
+        // In a real app, add to cart service
+        // For now, just navigate to order
+        Navigation.NavigateTo("/order");
+    }
+
+    private string GetPizzaImage(string? name)
+    {
+        if (string.IsNullOrEmpty(name)) return "images/default.svg";
+        return $"images/{name.ToLower()}.svg";
     }
 }
 
@@ -92,6 +103,14 @@
         text-align: center;
         transition: transform 0.3s, box-shadow 0.3s;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .pizza-image {
+        width: 150px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-bottom: 1rem;
     }
 
     .pizza-card:hover {
